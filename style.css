@@ -8,7 +8,13 @@
     --font-header: 'Fredoka One', cursive;
     --font-body: 'Poppins', sans-serif;
 }
-
+.container {
+    display: -webkit-flex; /* Untuk Safari lama & iPhone */
+    display: flex;
+    
+    -webkit-border-radius: 10px; /* Untuk pembulatan sudut */
+    border-radius: 10px;
+}
 /* Reset & Basic Setup */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
