@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Xudoku Math Plus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-brand">
+            <img src="assets/logo.png" alt="Logo Game" class="nav-logo">
+            Xudoku Math Plus
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" class="nav-tab active" data-tab="home" onclick="switchTab('home')">Home</a></li>
+            <li><a href="#" class="nav-tab" data-tab="materi" onclick="switchTab('materi')">Materi</a></li>
+            <li><a href="#" class="nav-tab" data-tab="game" onclick="switchTab('game')">Game</a></li>
+            <li><a href="#" class="nav-tab" data-tab="about" onclick="switchTab('about')">Tentang</a></li>
+        </ul>
+        <div class="nav-icons">
+            <button id="help-button" aria-label="Bantuan"><i class="fas fa-question-circle"></i></button>
+            <button id="music-toggle" aria-label="Musik"><i class="fas fa-music"></i></button>
+            <button id="sfx-toggle" aria-label="Efek Suara"><i class="fas fa-volume-up"></i></button>
+            </div>
+    </nav>
+
+    <main>
+        <section id="home" class="tab-content active">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Xudoku Math Plus</h1>
+                    <p class="hero-subtitle"> Solusi seru belajar logika Matematika dan Sistem Persamaan Linear Dua Variabel melalui puzzle yang menantang! 🧠✨</p>
+                    <button class="cta-button large" onclick="switchTab('game')">MULAI BERMAIN</button>
+                </div>
+                <div class="hero-image-box">
+                    <img src="assets\xudoku_child.png" alt="Xudoku Illustration" class="landing-illustration">
+                </div>
+            </div>
+
+            <div class="menu-banner">
+                <h2>Menu</h2>
+            </div>
+
+            <div class="menu-cards-container">
+                <div class="menu-card" onclick="switchTab('materi')">
+                    <div class="card-icon yellow"><i class="fas fa-book-open"></i></div>
+                    <h3>Materi</h3>
+                    <p>Pelajari konsep dasar Sudoku dan metode penyelesaian SPLDV secara lengkap.</p>
+                </div>
+
+                <div class="menu-card" onclick="switchTab('game')">
+                    <div class="card-icon yellow"><i class="fas fa-gamepad"></i></div>
+                    <h3>Game</h3>
+                    <p>Mainkan 20 level tantangan matematika mulai dari yang mudah hingga level ahli.</p>
+                </div>
+
+                <div class="menu-card" onclick="switchTab('about')">
+                    <div class="card-icon yellow"><i class="fas fa-info-circle"></i></div>
+                    <h3>Tentang</h3>
+                    <p>Informasi mengenai pengembang dan tujuan pembuatan media Xudoku Math Plus.</p>
+                </div>
+            </div>
+
+            <footer class="landing-footer">
+                <div class="footer-content">
+                    <h3><i class="fas fa-users"></i> Tentang Kami</h3>
+                    <p>
+                        <strong>Xudoku Math Plus</strong> adalah media pembelajaran interaktif yang menggabungkan keseruan 
+                        <strong>permainan logika Sudoku</strong> dengan konsep matematika 
+                        <strong>Sistem Persamaan Linear Dua Variabel (SPLDV)</strong>. 
+                        Game ini dirancang untuk melatih kemampuan berpikir kritis dan pemecahan masalah dengan cara yang lebih menyenangkan! 🧠✨
+                    </p>
+                    <div class="footer-credit">© 2026 Xudoku Math Plus - Pendidikan Matematika UPGRIS</div>
+                </div>
+            </footer>
+        </section>
+
+       <section id="materi" class="tab-content">
+            <div id="materi-dashboard-view">
+                <div class="materi-dashboard-container">
+                    <h2 class="styled-title">Modul Belajar SPLDV</h2>
+                    <p class="section-subtitle">Pilih modul untuk mulai memahami konsep matematika dengan seru!</p>
+
+                    <div class="materi-course-grid">
+                        <div class="course-card">
+                            <div class="card-tag">Dasar</div>
+                            <div class="card-icon"><i class="fas fa-book-open"></i></div>
+                            <h3>Pengertian SPLDV</h3>
+                            <p>Kenali konsep variabel, koefisien, dan konstanta dalam persamaan linear.</p>
+                            <button onclick="openModul('pengertian')" class="learn-btn">Mulai Belajar</button>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="card-tag">Metode 1</div>
+                            <div class="card-icon"><i class="fas fa-exchange-alt"></i></div>
+                            <h3>Metode Substitusi</h3>
+                            <p>Belajar cara mengganti satu variabel dengan variabel lainnya untuk mencari solusi.</p>
+                            <button onclick="openModul('substitusi')" class="learn-btn">Mulai Belajar</button>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="card-tag">Metode 2</div>
+                            <div class="card-icon"><i class="fas fa-eraser"></i></div>
+                            <h3>Metode Eliminasi</h3>
+                            <p>Teknik menghilangkan salah satu variabel untuk menyederhanakan perhitungan.</p>
+                            <button onclick="openModul('eliminasi')" class="learn-btn">Mulai Belajar</button>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="card-tag">Metode 3</div>
+                            <div class="card-icon"><i class="fas fa-blender"></i></div>
+                            <h3>Metode Campuran</h3>
+                            <p>Gabungan eliminasi dan substitusi untuk penyelesaian yang lebih cepat.</p>
+                            <button onclick="openModul('campuran')" class="learn-btn">Mulai Belajar</button>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="card-tag">Visual</div>
+                            <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                            <h3>Metode Grafik</h3>
+                            <p>Melihat solusi SPLDV melalui titik potong dua garis pada koordinat kartesius.</p>
+                            <button onclick="openModul('grafik')" class="learn-btn">Mulai Belajar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="materi-content-view" class="hidden">
+                <div class="course-frame-wrapper">
+                    <button class="btn-back-course" onclick="backToDashboard()">
+                        <i class="fas fa-chevron-left"></i> Kembali ke Daftar Modul
+                    </button>
+                    
+                    <div id="materi-dynamic-content">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="game" class="tab-content">
+            <div id="level-selection-view">
+                <h2 class="styled-title">Level game</h2>
+                
+                <div id="level-map-container" class="level-grid"></div>
+            </div>
+
+            <div id="game-play-view" class="hidden">
+                <h2 id="level-title" class="styled-title"></h2>
+                <p id="level-instruction" class="instruction-box"></p>
+                
+                <div id="game-board-container"></div>
+                
+                <div class="game-footer">
+                    <button id="check-answer-btn" class="cta-button">Cek Jawaban</button>
+                    <button onclick="showLevelMap()" class="cta-button secondary">lihat level</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="tab-content">
+            <div class="about-creative-container">
+                <div class="bg-pattern-overlay"></div>
+
+                <h2 class="styled-title center-title">Tentang Xudoku Math Plus</h2>
+
+                <div class="mission-hero-card bounce-in">
+                    <div class="mission-icon-bg"><i class="fas fa-rocket"></i></div>
+                    <div class="mission-content">
+                        <h3>Misi Kami: Matematika Itu Seru!</h3>
+                        <p class="lead-text">
+                            <strong>Xudoku Math Plus</strong> hadir untuk mematahkan mitos bahwa matematika itu menakutkan. Kami mengubah soal <strong>SPLDV</strong> yang rumit menjadi puzzle <strong>Sudoku</strong> yang adiktif dan menantang. Belajar jadi terasa seperti bermain!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="details-grid-3">
+                    <div class="detail-card feat-card slide-up" style="animation-delay: 0.1s;">
+                        <div class="card-icon-top yellow"><i class="fas fa-brain"></i></div>
+                        <h4>Fokus Pembelajaran</h4>
+                        <p>Dirancang khusus untuk melatih logika dan pemahaman mendalam materi <strong>Sistem Persamaan Linear Dua Variabel (SPLDV)</strong> tingkat SMP/MTs.</p>
+                    </div>
+
+                    <div class="detail-card dev-card-center slide-up" style="animation-delay: 0.2s;">
+                        <div class="dev-avatar-container">
+                            <i class="fas fa-user-graduate dev-avatar-icon"></i>
+                        </div>
+                        <h4>Yustia Fikratul F.</h4>
+                        <p class="dev-role">Mahasiswa Pendidikan Matematika</p>
+                        <p class="dev-campus"><i class="fas fa-university"></i> Univ. PGRI Semarang</p>
+                        <div class="card-decoration-line"></div>
+                    </div>
+
+                    <div class="detail-card feat-card slide-up" style="animation-delay: 0.3s;">
+                        <div class="card-icon-top yellow"><i class="fas fa-gamepad"></i></div>
+                        <h4>Fitur Unggulan</h4>
+                        <ul class="feature-bullet-list">
+                            <li><i class="fas fa-check-circle"></i> 20 Level Progresif</li>
+                            <li><i class="fas fa-check-circle"></i> Beragam Tipe Puzzle</li>
+                            <li><i class="fas fa-check-circle"></i> Sistem Reward & Audio</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="creative-footer">
+                    <p>Dibuat dengan <i class="fas fa-heart text-yellow"></i> untuk Pendidikan Indonesia</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="level-select-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Level Permainan</h2>
+            <div id="level-map-container-modal"></div> 
+        </div>
+    </div>
+    <div id="complete-modal" class="modal">
+        <div class="modal-content level-complete-box">
+            <div class="victory-icon">🏆</div>
+            <h2 id="praise-text">PERFECT!</h2>
+            <p>Level ini berhasil kamu selesaikan dengan hebat!</p>
+            <div class="complete-actions">
+                <button onclick="retryLevel()" class="cta-button secondary">
+                    <i class="fas fa-redo"></i> Ulangi
+                </button>
+                <button id="modal-next-btn" class="cta-button">
+                    Next Level <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="help-modal" class="modal"><div class="modal-content"><span class="close-button">&times;</span><h2>Cara Bermain</h2><ol><li>Pilih level dari Peta Petualangan.</li><li>Baca petunjuk yang diberikan untuk level tersebut.</li><li>Isi semua kotak kosong sesuai dengan aturan puzzle.</li><li>Klik tombol 'Cek Jawaban' untuk melihat hasilmu. Jika benar, level berikutnya akan terbuka!</li></ol></div></div>
+
+    <audio id="bg-music" src="assets/Sneaky-Snitch(chosic.com).mp3" loop></audio>
+    <audio id="sfx-correct" src="assets/mixkit-game-level-completed-2059.wav"></audio>
+    <audio id="sfx-wrong" src="assets/wrong-answer.mp3"></audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
