@@ -4,6 +4,82 @@ body {
     margin: 0;
     padding: 0;
 }
+'/* --- RESPONSIVE FIX UNTUK IPHONE/MOBILE --- */
+@media (max-width: 768px) {
+    /* 1. Navigasi: Berbaris ke bawah agar tidak bertumpuk */
+    nav {
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+    }
+    .nav-links {
+        gap: 10px;
+        font-size: 0.9em;
+        flex-wrap: wrap; /* Agar menu tidak keluar layar */
+        justify-content: center;
+    }
+    .nav-brand { font-size: 1.5em; }
+
+    /* 2. Hero Section: Teks di atas, Gambar di bawah */
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+    }
+    .hero-content { max-width: 100%; }
+    .hero-title { font-size: 2em; }
+    .landing-illustration {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    /* 3. Kartu Menu: Berbaris vertikal */
+    .menu-cards-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+    }
+    .menu-card { width: 100%; max-width: 320px; }
+
+    /* 4. Peta Level: Kurangi kolom agar pas di layar HP */
+    .level-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        padding: 20px;
+    }
+    .level-node {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2em;
+    }
+
+    /* 5. SUDOKU BOARD: Perkecil kotak agar tidak terpotong */
+    .grid-4x4 { grid-template-columns: repeat(4, 70px); }
+    .grid-6x4, .grid-6x6 { grid-template-columns: repeat(6, 50px); }
+    .grid-9x9 { grid-template-columns: repeat(9, 35px); }
+
+    .grid-4x4 .cell { width: 70px; height: 70px; font-size: 1.8em; }
+    .grid-6x4 .cell, .grid-6x6 .cell { width: 50px; height: 50px; font-size: 1.4em; }
+    .grid-9x9 .cell { width: 35px; height: 35px; font-size: 1em; }
+
+    /* 6. Halaman Tentang: Buat kolom menjadi satu baris */
+    .details-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .mission-hero-card {
+        flex-direction: column;
+        padding: 30px 20px;
+    }
+    .mission-content { max-width: 100%; text-align: center; }
+}
+
+/* Khusus layar sangat kecil (iPhone SE / Mini) */
+@media (max-width: 400px) {
+    .level-grid { grid-template-columns: repeat(3, 1fr); }
+    .grid-9x9 { grid-template-columns: repeat(9, 30px); }
+    .grid-9x9 .cell { width: 30px; height: 30px; }
+}
 :root {
     --primary-color: #0077b6;
     --secondary-color: #00b4d8;
